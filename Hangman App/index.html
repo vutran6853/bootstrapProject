@@ -9,12 +9,45 @@
     <title>Hangman App</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="/js/angular.min.js"></script>
     <script src="/js/app.js"></script>
 
 
   </head>
   <body ng-app="HangmanApp" ng-controller="GameController">
-    {{demo}}
+    <div>
+
+      <div>
+        Guesses Left :: {{guesses}}
+      </div>
+
+      <div>
+        Your Incorrect Guesses :: 
+        <span ng-repeat="letter in incorrectLettersChosen">
+          {{letter}}
+        </span>  
+      </div>
+
+      <div>
+        Your Correct Guesses ::
+        <span ng-repeat="letter in correctLettersChosen">
+            {{letter}}
+        </span> 
+      </div>
+
+      <div>You have to guess: {{displayWord}}</div>
+      <div>
+
+        <div>
+          <input type="text" name="guess" ng-model="input.letter">
+
+          <button ng-click="letterChosen()">Submit</button>
+        </div>
+      
+      </div>
+    
+    </div>
+
+
+
   </body>
 </html>
